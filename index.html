@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<title>HeavenGen AI — Create Beyond Imagination</title>
+<style>
+:root{--bg:#050816;--panel:#0b1228;--line:#202c50;--blue:#367bff;--purple:#a13cff;--text:#f5f7ff;--muted:#a4b0d0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 75% 15%,#15104a 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:#050816eF;border-bottom:1px solid #202748;backdrop-filter:blur(18px)}
+.nav{max-width:1200px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:850;letter-spacing:-.7px}
+.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#4a91ff,#a13cff);display:grid;place-items:center;font-size:23px;box-shadow:0 0 25px #744bff55}
+.gradient{background:linear-gradient(100deg,#62b7ff,#a56bff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.tagline{font-size:10px;color:#9ba9cc;letter-spacing:1.5px;margin-top:2px}
+.navlinks{display:flex;gap:24px;color:#c5cde4;font-size:13px}
+.creator{font-size:12px;background:#121b38;border:1px solid #2b365c;border-radius:30px;padding:10px 14px;white-space:nowrap}
+.wrap{max-width:1160px;margin:auto;padding:0 22px}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px;padding-top:55px;padding-bottom:38px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #245f9d;background:#0b1d39;border-radius:30px;padding:10px 14px;color:#c9e8ff;font-size:12px}
+h1{font-size:clamp(40px,6vw,68px);line-height:1.04;letter-spacing:-2.8px;margin:22px 0 14px}
+h2{letter-spacing:-.6px}
+.hero p{color:var(--muted);line-height:1.8;font-size:15px}
+.hero p strong{color:#e6eaff}
+.signature{font-family:"Brush Script MT",cursive;font-size:31px;color:#e2d7ff;margin-top:23px;transform:rotate(-3deg);display:inline-block}
+.signature small{display:block;font:11px system-ui;color:#a8b6d6;text-align:right;transform:rotate(3deg)}
+.hero-art{min-height:330px;position:relative;display:grid;place-items:center}
+.art-frame{position:relative;width:100%;height:330px;border:1px solid #4c5dd9;border-radius:24px;padding:8px;transform:rotate(1deg);background:linear-gradient(140deg,#1c6ad8,#7d2dff,#06132f);box-shadow:0 0 70px #5429b544}
+.art-scene{height:100%;border-radius:17px;overflow:hidden;background:linear-gradient(180deg,#70c8ff,#d5eaff 44%,#7864d2 45%,#161e52);position:relative}
+.sun{position:absolute;width:90px;height:90px;background:#fff3bf;border-radius:50%;top:35px;left:45%;filter:blur(2px);box-shadow:0 0 60px #fff}
+.mountain{position:absolute;bottom:55px;width:0;height:0;border-left:155px solid transparent;border-right:155px solid transparent;border-bottom:190px solid #314d9b}
+.mountain.two{left:25%;border-left-width:120px;border-right-width:120px;border-bottom-color:#6579c9;bottom:65px}
+.island{position:absolute;bottom:45px;left:12%;width:76%;height:55px;background:linear-gradient(90deg,#246b80,#6d94aa,#243d70);clip-path:polygon(5% 15%,95% 0,80% 55%,100% 70%,12% 100%,0 45%);filter:drop-shadow(0 0 10px #77d8ff)}
+.castle{position:absolute;bottom:95px;left:38%;width:100px;height:100px;background:#c7d9f5;clip-path:polygon(0 35%,15% 35%,15% 0,25% 0,25% 35%,40% 35%,40% 10%,50% 10%,50% 35%,70% 35%,70% 0,80% 0,80% 35%,100% 35%,100% 100%,0 100%);filter:drop-shadow(0 0 10px #fff)}
+.art-caption{position:absolute;bottom:14px;left:15px;right:15px;background:#070d28c9;border:1px solid #6476d2;border-radius:12px;padding:12px;font-size:12px;display:flex;justify-content:space-between;gap:8px}
+.float-label{position:absolute;background:#0a1530ed;border:1px solid #3a6cbd;border-radius:12px;padding:12px;font-size:11px;box-shadow:0 10px 30px #0005}
+.float-one{top:20px;left:-10px}.float-two{bottom:20px;right:-5px}
+.generator{border:1px solid #49338a;border-radius:23px;padding:20px;background:linear-gradient(145deg,#0d1028ee,#080d20ee);box-shadow:0 18px 65px #0003}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:#101834;border-radius:15px;padding:5px;gap:5px}
+.tab{border:0;border-radius:11px;background:transparent;color:#c4cce6;padding:14px 8px;font-weight:700;font-size:14px}
+.tab.active{background:linear-gradient(100deg,#3478ff,#a23dff);color:white;box-shadow:0 5px 25px #643dff40}
+.field-label{display:block;font-size:12px;color:#c8d1ed;margin:20px 0 9px}
+textarea{width:100%;min-height:120px;resize:vertical;border:1px solid #344b8d;background:#080f24;color:white;border-radius:15px;padding:17px;outline:none}
+textarea:focus,input:focus{border-color:#8a63ff}
+textarea::placeholder,input::placeholder{color:#7585aa}
+.counter{text-align:right;font-size:11px;color:#8391b5;margin-top:6px}
+.styles{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}
+.chip{border:1px solid #273457;background:#111a34;color:#cbd4ef;border-radius:30px;padding:10px 15px;font-size:12px}
+.chip.active{border-color:#9b72ff;background:#302064;color:#fff}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
+select,input{width:100%;background:#0b1329;border:1px solid #29375c;border-radius:11px;padding:12px;color:white;outline:none}
+.generate-row{display:flex;gap:12px;align-items:center;margin-top:17px}
+.primary{border:0;border-radius:13px;background:linear-gradient(100deg,#367bff,#a03cff);color:white;font-weight:800;padding:15px 22px;box-shadow:0 8px 25px #5434ff30}
+.primary:disabled{opacity:.6;cursor:wait}
+.generate-row .primary{flex:1}
+.notice{font-size:11px;color:#8f9bb9;line-height:1.6;margin-top:14px}
+.status{font-size:13px;color:#b9d7ff;margin-top:12px;overflow-wrap:anywhere}
+.result{margin-top:18px;display:none;border:1px solid #29365c;border-radius:15px;padding:14px;background:#090f22}
+.result img,.result video{width:100%;border-radius:10px;max-height:500px;object-fit:contain}
+.section{padding:43px 0}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
+.section-head h2{font-size:23px;margin:0}
+.section-head span{font-size:12px;color:#a8b5d6}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.gallery-card{border:1px solid #253253;border-radius:17px;overflow:hidden;background:#0b1227}
+.gallery-art{height:160px;position:relative;display:grid;place-items:center;font-size:50px;overflow:hidden}
+.gallery-art:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#050816aa)}
+.g1{background:linear-gradient(140deg,#70bfff,#c2e7ff,#7e6cda)}
+.g2{background:radial-gradient(circle at 50% 35%,#fff0be,#b88b65 35%,#443047 90%)}
+.g3{background:linear-gradient(135deg,#101e56,#a82bd0,#080e22)}
+.g4{background:linear-gradient(135deg,#ffcf8c,#d87559,#39284b)}
+.g5{background:linear-gradient(135deg,#92d9ff,#effbff,#4e79b2)}
+.g6{background:linear-gradient(135deg,#ff9b55,#b82c56,#111c46)}
+.gallery-info{padding:12px 13px;font-size:12px;position:relative}
+.gallery-info span{color:#9eaccd;display:block;margin-top:5px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.feature{padding:19px 15px;background:linear-gradient(145deg,#0c1630,#090f21);border:1px solid #202e50;border-radius:16px}
+.feature-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#1b2455;font-size:20px}
+.feature h3{font-size:14px;margin:13px 0 7px}
+.feature p{font-size:12px;line-height:1.7;color:#9eaccb;margin:0}
+footer{border-top:1px solid #202b49;margin-top:35px;padding:23px 0;color:#94a1c2;font-size:12px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+footer strong{color:#d6dcff}
+@media(min-width:1000px){.hero{padding-top:65px}.generator{padding:26px}}
+@media(max-width:760px){.nav{padding:12px 15px}.navlinks{display:none}.creator{font-size:10px;padding:9px}.brand{font-size:17px}.logo{width:36px;height:36px}.wrap{padding:0 15px}.hero{grid-template-columns:1fr;padding-top:37px;gap:20px}.hero-art{min-height:275px}.art-frame{height:265px}.float-one{left:0}.float-two{right:0}.hero p{font-size:14px}h1{letter-spacing:-1.7px}.generator{padding:13px}.tab{font-size:12px;padding:13px 4px}.chip{padding:9px 12px}.gallery{grid-template-columns:repeat(2,1fr);gap:10px}.gallery-art{height:130px}.features{grid-template-columns:repeat(2,1fr)}.section{padding:30px 0}.section-head h2{font-size:20px}.options{gap:8px}}
+@media(max-width:380px){.creator{display:none}.gallery-art{height:110px}.generate-row .primary{padding:13px 10px}.float-label{font-size:9px;padding:9px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="#">
+      <span class="logo">☁</span>
+      <span>HeavenGen <span class="gradient">AI</span><div class="tagline">DREAM · CREATE · IMAGINE</div></span>
+    </a>
+    <nav class="navlinks"><a href="#">Home</a><a href="#gallery">Gallery</a><a href="#create">Create</a><a href="#about">About</a></nav>
+    <div class="creator">✦ Sarmad Shahid</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">✦ AI-POWERED CREATION STUDIO</div>
+      <h1>HeavenGen <span class="gradient">AI</span></h1>
+      <h2 style="font-size:clamp(21px,3vw,29px);margin:0">Turn Imagination Into Reality.</h2>
+      <p>Create beautiful visual ideas with a next-generation creative studio. Describe your vision, choose a style, and get started.</p>
+      <p>⚡ Fast to explore &nbsp; • &nbsp; 🎨 Made for creators</p>
+      <div class="signature">Sarmad Shahid<small>Creator of HeavenGen AI</small></div>
+    </div>
+    <div class="hero-art">
+      <div class="float-label float-one">✧ Your imagination</div>
+      <div class="art-frame"><div class="art-scene">
+        <div class="sun"></div><div class="mountain"></div><div class="mountain two"></div><div class="island"></div><div class="castle"></div>
+        <div class="art-caption"><span>✦ Dream Worlds</span><span>AI Art Studio</span></div>
+      </div></div>
+      <div class="float-label float-two">✦ Create something amazing</div>
+    </div>
+  </section>
+
+  <section class="generator" id="create">
+    <div class="tabs">
+      <button class="tab active" id="photoTab" type="button">▧ &nbsp; Photo Generation</button>
+      <button class="tab" id="videoTab" type="button">▷ &nbsp; Video Generation</button>
+    </div>
+    <label class="field-label" for="prompt">DESCRIBE YOUR IDEA</label>
+    <textarea id="prompt" maxlength="1000" placeholder="A magical castle floating above the clouds, cinematic lighting, ultra-detailed..."></textarea>
+    <div class="counter"><span id="count">0</span>/1000</div>
+    <div class="styles" id="styles">
+      <button class="chip active" type="button">✧ Realistic</button>
+      <button class="chip" type="button">◉ Anime</button>
+      <button class="chip" type="button">🎨 Artistic</button>
+      <button class="chip" type="button">◇ 3D</button>
+      <button class="chip" type="button">☆ Fantasy</button>
+    </div>
+    <div class="options">
+      <div><label class="field-label" for="ratio">ASPECT RATIO</label>
+        <select id="ratio"><option value="1:1">Square · 1:1</option><option value="16:9">Landscape · 16:9</option><option value="9:16">Portrait · 9:16</option><option value="4:3">Classic · 4:3</option></select>
+      </div>
+      <div id="durationBox" style="display:none"><label class="field-label" for="duration">VIDEO DURATION</label>
+        <select id="duration"><option value="5">5 seconds</option><option value="10">10 seconds</option></select>
+      </div>
+    </div>
+    <div class="generate-row">
+      <button class="primary" id="generate" type="button">✦ &nbsp; Generate <span id="kind">Photo</span> →</button>
+    </div>
+    <div class="status" id="status" role="status"></div>
+    <div class="result" id="result"></div>
+    <p class="notice">Note: Actual generation requires a working server-side AI endpoint. Never put your private API token in this HTML file.</p>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="section-head"><h2>✧ Example Creations</h2><span>Imagine · Create · Inspire</span></div>
+    <div class="gallery">
+      <article class="gallery-card"><div class="gallery-art g1">🏰</div><div class="gallery-info">Sky Kingdom<span>Fantasy concept</span></div></article>
+      <article class="gallery-card"><div class="gallery-art g2">🐈</div><div class="gallery-info">Dreamy Companions<span>Portrait inspiration</span></div></article>
+      <article class="gallery-card"><div class="gallery-art g3">🌃</div><div class="gallery-info">Neon Future<span>Cyberpunk concept</span></div></article>
+      <article class="gallery-card"><div class="gallery-art g4">🌅</div><div class="gallery-info">Golden Hour<span>Cinematic mood</span></div></article>
+      <article class="gallery-card"><div class="gallery-art g5">🏔️</div><div class="gallery-info">Alpine Escape<span>Nature inspiration</span></div></article>
+      <article class="gallery-card"><div class="gallery-art g6">🌊</div><div class="gallery-info">Ocean Dreams<span>Fantasy landscape</span></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-head"><h2>Made for Your Imagination</h2><span>HeavenGen AI</span></div>
+    <div class="features">
+      <article class="feature"><div class="feature-icon">⚡</div><h3>Simple Workflow</h3><p>Describe your idea and choose your creative style.</p></article>
+      <article class="feature"><div class="feature-icon">🛡️</div><h3>Privacy First</h3><p>Keep secret API credentials on the server, never in public code.</p></article>
+      <article class="feature"><div class="feature-icon">🎨</div><h3>Creative Styles</h3><p>Explore realistic, anime, artistic, 3D and fantasy looks.</p></article>
+      <article class="feature"><div class="feature-icon">✦</div><h3>Built with Passion</h3><p>A creative project by Sarmad Shahid.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap foot"><strong>☁ HeavenGen AI</strong><span>Created with ♥ by Sarmad Shahid</span><span>Dream · Create · Imagine</span></div></footer>
+
+<script>
+const promptBox=document.getElementById('prompt');
+const count=document.getElementById('count');
+const photoTab=document.getElementById('photoTab');
+const videoTab=document.getElementById('videoTab');
+const durationBox=document.getElementById('durationBox');
+const kind=document.getElementById('kind');
+const statusBox=document.getElementById('status');
+const resultBox=document.getElementById('result');
+const generateButton=document.getElementById('generate');
+let mode='photo';
+let selectedStyle='Realistic';
+
+promptBox.addEventListener('input',()=>count.textContent=promptBox.value.length);
+
+document.querySelectorAll('.chip').forEach(button=>{
+  button.addEventListener('click',()=>{
+    document.querySelectorAll('.chip').forEach(chip=>chip.classList.remove('active'));
+    button.classList.add('active');
+    selectedStyle=button.textContent.replace(/^[^\w]+/,'').trim();
+  });
+});
+
+function setMode(next){
+  mode=next;
+  photoTab.classList.toggle('active',mode==='photo');
+  videoTab.classList.toggle('active',mode==='video');
+  durationBox.style.display=mode==='video'?'block':'none';
+  kind.textContent=mode==='video'?'Video':'Photo';
+  promptBox.placeholder=mode==='video'
+    ?'A cinematic camera move through a magical floating castle...'
+    :'A magical castle floating above the clouds, cinematic lighting...';
+  statusBox.textContent='';
+  resultBox.style.display='none';
+}
+photoTab.addEventListener('click',()=>setMode('photo'));
+videoTab.addEventListener('click',()=>setMode('video'));
+
+generateButton.addEventListener('click',async()=>{
+  const prompt=promptBox.value.trim();
+  if(!prompt){
+    statusBox.textContent='Please pehle apna idea likhein.';
+    promptBox.focus();
+    return;
+  }
+  generateButton.disabled=true;
+  statusBox.textContent='Connecting to the AI generation service...';
+  resultBox.style.display='none';
+
+  try{
+    const response=await fetch('/.netlify/functions/generate',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        prompt,
+        type:mode,
+        style:selectedStyle,
+        aspectRatio:document.getElementById('ratio').value,
+        duration:Number(document.getElementById('duration').value)
+      })
+    });
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok) throw new Error(data.error||data.message||'Server error ('+response.status+').');
+    const mediaUrl=data.url||data.imageUrl||data.videoUrl||data.output;
+    if(typeof mediaUrl==='string'&&/^https?:\/\//i.test(mediaUrl)){
+      resultBox.replaceChildren();
+      const media= document.createElement(mode==='video'?'video':'img');
+      media.src=mediaUrl;
+      if(mode==='video'){media.controls=true;media.playsInline=true}
+      else {media.alt='AI-generated image';media.loading='lazy'}
+      resultBox.appendChild(media);
+      const link=document.createElement('a');
+      link.href=mediaUrl;link.target='_blank';link.rel='noopener';
+      link.textContent='Open result ↗';
+      link.style='display:inline-block;margin-top:12px;color:#b9b1ff';
+      resultBox.appendChild(link);
+      resultBox.style.display='block';
+      statusBox.textContent='Result received. If it does not load, check the generation service.';
+    }else if(data.status||data.jobId){
+      statusBox.textContent='Request accepted, but this service returned a job instead of a media URL. Job: '+(data.jobId||data.status)+'. A status-check endpoint may be needed.';
+    }else{
+      throw new Error('Server ne media URL return nahi ki. Backend response format check karna hoga.');
+    }
+  }catch(error){
+    statusBox.textContent='Generation abhi connect nahi hui: '+error.message+' Check karein ke Netlify function generate deploy hui hai aur AI service configured hai.';
+  }finally{
+    generateButton.disabled=false;
+  }
+});
+</script>
+</body>
+  </html>
+  
